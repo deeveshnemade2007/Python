@@ -1,33 +1,56 @@
 import pandas as pd
 
-df = pd.read_csv("C:/Users/Deevesh Nemade/Downloads/student_dataset_25.csv")
+df=pd.read_csv("C:/Users/Deevesh Nemade/Downloads/student_dataset_25.csv")
 print(df)
 
 print("="*100)
-missing_data = df.isnull().sum()
-
+print("1. FINDING NULL VALUES")
+print()
+missing_data=df.isnull().sum()
 print(missing_data)
 
 print("="*100)
-print("df.drop_duplicated().sum()")
+print("2. FINDING DUPLICATE VALUES")
+print()
+print("Duplicate values are: ",df.duplicated().sum())
 
 print("="*100)
+print("3. REMOVING DUPLICATE VALUES")
+print()
 print(df.drop_duplicates())
 
 print("="*100)
-# numeric_col=df.select_dtypes(include=["number"]).columns
-
-# metrices_df=pd.DataFrame({
-#    'mean':df[numeric_col].mean()
-#})
-#print(metrices_df)
-
+print("4. CALCULATING MEAN FOR AGE AND SALARY ")
+print()
 mean_age = df["Age"].mean()
-print(f"Mean Age: {mean_age}")
-
 mean_salary = df["Salary"].mean()
-print(f"Mean Salary: {mean_salary}")
+print("Age Mean= ",mean_age)
+print("Salary Mean= ",mean_salary)
 
 print("="*100)
-df['Age'] = df['Age'].fillna(mean_age)
-df['Salary'] = df['Salary'].fillna(mean_salary)
+print("5. FILLING THE NULL VALUES AND DISPLAYING")
+print()
+df["Age"]=df["Age"].fillna(mean_age)
+df["Salary"]=df["Salary"].fillna(mean_salary)
+print(df)
+
+print("="*100)
+print("6. SPLITING THE NAME COLUMN INTO FIRST NAME AND LAST NAME ADD ADDING IT TO THE DATAFRAME")
+print()
+df[["First Name", "Last Name"]] = df["Student Full Name"].str.split(" ", n=1, expand=True)
+print(df)
+
+print("="*100)
+print("7. REMOVING THE STUDENT FULL NAME COLUMN")
+print()
+df = df.drop(columns=["Student Full Name"])
+print(df)
+
+print("="*100)
+print("8. NEW DATAFRAME")
+print()
+df = df[["First Name", "Last Name", "Age", "Salary", "Department"]]
+print(df)
+
+
+df.to_csv("final_student_data.csv", index=False)
