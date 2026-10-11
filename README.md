@@ -78,6 +78,22 @@ The codes mainly focus on **NumPy, Pandas, Data Cleaning, Data Analysis, Data Vi
 * Correlation heatmap
 * Data visualization using Seaborn and Matplotlib
 
+### Assignment 9 – Data Analysis and Statistics
+
+* Working with Python variables and data structures
+* Performing calculations and analyzing numerical data
+* Understanding data processing techniques
+* Developing logical and problem-solving skills
+
+### Assignment 10 – Linear Regression
+
+* Linear Regression using Scikit-learn
+* Training a machine learning model
+* Calculating slope and intercept
+* Mean Squared Error (MSE)
+* R² Score
+* Predicting values using the trained model
+
 ## 🛠️ Technologies Used
 
 * Python 3
@@ -99,7 +115,9 @@ Python/
 │   ├── 5.py
 │   ├── 6.py
 │   ├── 7.py
-│   └── 8.py
+│   ├── 8.py
+│   ├── 9.py
+│   └── 10.py
 │
 ├── Practice/
 │   └── Practice Programs
